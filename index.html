@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .clock-container
+        {
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+            gap:25px;
+        }
+
+        .main1
+        {
+            height:100px;
+            width: 300px;
+            background-color: black;
+            color: red;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: solid 2px white;
+            box-shadow: 0px 0px 200px rgba(255, 0, 0, 0.474);
+            border-radius: 20px;
+        }
+
+        .clock{
+            height: 100px;
+            width: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2.5rem;
+            font-family:'E1234';
+            text-shadow: 0px 0px 20px rgb(251, 70, 70);
+        }
+
+        #min
+        {
+            border: 2px solid white;
+        }
+
+        .main2{
+            height:35px;
+            width: 100px;
+            background-color: black;
+            color: red;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: solid 2px white;
+            /* box-shadow: 0px 0px 200px rgba(255, 255, 255, 0.63); */
+            border-radius: 5px;
+            gap:5px;
+            font-weight: bold;
+        }
+
+        .cal
+        {
+            text-shadow: 0px 0px 20px rgb(251, 70, 70);
+        }
+    </style>
+</head>
+<body>
+    <div class="clock-container">
+        <div class="main1">
+            <div class="clock" id = "hour"></div>
+            <div class="clock" id = "min"></div>
+            <div class="clock" id = "sec"></div>
+        </div>
+        <div class="main2">
+            <div class="cal" id = "date"></div>
+            <div class="cal" id = "month"></div>
+            <div class="cal" id = "year"></div>
+        </div>
+    </div>
+    <script>
+        
+        let x = function(){
+            let date = new Date()
+            let hour = date.getHours()
+            let min = date.getMinutes()
+            let sec = date.getSeconds()
+            let dat = date.getDate()
+            let month = date.getMonth()
+            let year = date.getFullYear()
+            let clockhr = document.getElementsByTagName('div')[2]
+            let clockmin = document.getElementsByTagName('div')[3]
+            let clocksec = document.getElementsByTagName('div')[4]
+            let clockdat = document.getElementsByTagName('div')[6]
+            let clockmon = document.getElementsByTagName('div')[7]
+            let clockyr = document.getElementsByTagName('div')[8]
+            clockhr.innerHTML = hour
+            clockmin.innerHTML = min
+            clocksec.innerHTML = sec
+            clockdat.innerHTML = dat + " / "
+            clockmon.innerHTML = month + " / "
+            clockyr.innerHTML = year
+        }
+        setInterval(x,1000)
+    </script>
+</body>
+</html>
